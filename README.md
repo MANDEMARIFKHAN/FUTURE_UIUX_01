@@ -1,20 +1,135 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# 🏋️ Elite Fit Gym – Modern Fitness Website
 
-# Run and deploy your AI Studio app
+A premium, responsive fitness website built with **React**, **TypeScript**, and modern UI/UX principles. This project was created as part of the **Future Interns UI/UX Design Task 1 (2026)**, focusing on redesigning a local service business website to improve lead generation and user engagement.
 
-This contains everything you need to run your app locally.
+## 🌐 Live Demo
 
-View your app in AI Studio: https://ai.studio/apps/f67867fa-675a-4326-a85c-24d3a4c7155e
+**Website:** https://elite-fit-gym.vercel.app
 
-## Run Locally
+## 📌 Project Overview
 
-**Prerequisites:**  Node.js
+Elite Fit Gym is designed to provide an engaging and conversion-focused experience for users looking to join a fitness center. The website features a clean layout, compelling calls-to-action, responsive design, and smooth animations to encourage visitors to book a trial or become members.
 
+## 🎯 Objectives
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+* Create a modern and visually appealing fitness website
+* Improve user experience with intuitive navigation
+* Increase conversions through strategic CTA placement
+* Ensure full responsiveness across desktop, tablet, and mobile devices
+* Apply professional UI/UX design principles for a real-world service business
+
+## ✨ Features
+
+* Responsive and mobile-friendly design
+* Modern hero section with strong value proposition
+* Membership plans and pricing
+* Fitness programs showcase
+* Professional trainers section
+* Testimonials and social proof
+* Gallery with high-quality visuals
+* FAQ section
+* Contact and lead generation form
+* Smooth animations and interactive UI elements
+* SEO-friendly structure
+
+## 🛠️ Tech Stack
+
+* React
+* TypeScript
+* Tailwind CSS
+* Framer Motion
+* Lucide React Icons
+* Vite
+
+## 📱 Pages Included
+
+* Home
+* Programs
+* Membership
+* Trainers
+* About
+* Contact
+
+## 🎨 UI/UX Highlights
+
+* Clean visual hierarchy
+* Conversion-focused layout
+* Strong call-to-action buttons
+* Accessible and readable typography
+* Premium black, red, and white color palette
+* Smooth transitions and micro-interactions
+* Mobile-first responsive design
+
+## 🚀 Getting Started
+
+### Clone the repository
+
+```bash
+git clone <your-repository-url>
+```
+
+### Navigate to the project folder
+
+```bash
+cd elite-fit-gym
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start the development server
+
+```bash
+npm run dev
+```
+
+### Build for production
+
+```bash
+npm run build
+```
+
+## 📂 Project Structure
+
+```text
+elite-fit-gym/
+├── public/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── assets/
+│   ├── hooks/
+│   ├── styles/
+│   ├── App.tsx
+│   └── main.tsx
+├── package.json
+├── tsconfig.json
+└── README.md
+```
+
+## 🎯 Design Rationale
+
+The website was designed with a strong emphasis on lead generation and user engagement. Key UX decisions include:
+
+* Prominent CTAs to encourage sign-ups and free trial bookings
+* Clear content hierarchy for easy navigation
+* Trust-building elements such as testimonials and trainer profiles
+* Responsive layouts for seamless browsing across devices
+* Modern animations that enhance the experience without distracting users
+
+## 📷 Screenshots
+
+Add screenshots of your homepage and key sections here to showcase the design.
+
+## 📄 License
+
+This project is created for educational and portfolio purposes.
+
+## 👨‍💻 Author
+
+**Arif Khan**
+
+If you found this project useful, feel free to star the repository and share your feedback.
