@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Oswald:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Oswald", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-elite-red: #dc2626;
+  --color-elite-dark: #0a0a0a;
+  --color-elite-card: #18181b;
+}
+
+html, body {
+  @apply bg-elite-dark text-white font-sans antialiased;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a; 
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E63946; 
+}
