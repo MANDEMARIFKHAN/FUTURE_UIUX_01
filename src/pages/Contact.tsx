@@ -64,9 +64,23 @@ export default function Contact() {
           >
             <h3 className="font-display font-bold text-3xl tracking-widest uppercase mb-8 text-white">Send a Message</h3>
             {submitted ? (
-              <div className="bg-green-500/10 border border-green-500 text-green-400 p-6 rounded text-center">
-                <p className="font-bold text-lg mb-2">Message Received!</p>
-                <p className="font-light">Our team will get back to you within 24 hours.</p>
+              <div className="bg-green-500/10 border border-green-500 text-green-400 p-6 rounded">
+                <p className="font-bold text-lg mb-4 text-center">Appointment Confirmed!</p>
+                <div className="space-y-3 text-left">
+                  <div className="pb-3 border-b border-green-500/30">
+                    <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-1">Name</p>
+                    <p className="text-white font-light text-lg">{formData.firstName} {formData.lastName}</p>
+                  </div>
+                  <div className="pb-3 border-b border-green-500/30">
+                    <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-1">Phone</p>
+                    <p className="text-white font-light text-lg">{formData.phone || 'Not provided'}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-1">Email</p>
+                    <p className="text-white font-light text-lg">{formData.email}</p>
+                  </div>
+                </div>
+                <p className="font-light text-center mt-4 text-sm">Our team will get back to you within 24 hours.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
