@@ -62,84 +62,122 @@ export default function Contact() {
              transition={{ duration: 0.6 }}
              className="bg-elite-card border border-white/5 p-8 md:p-10 rounded-xl"
           >
-            <h3 className="font-display font-bold text-3xl tracking-widest uppercase mb-8 text-white">Send a Message</h3>
+            <h3 className="font-display font-bold text-3xl tracking-widest uppercase mb-2 text-white">Book Your Appointment</h3>
+            <p className="text-gray-400 text-sm font-light mb-8 pb-8 border-b border-white/10">Fill in your details and our team will contact you shortly</p>
             {submitted ? (
-              <div className="bg-green-500/10 border border-green-500 text-green-400 p-6 rounded">
-                <p className="font-bold text-lg mb-4 text-center">Appointment Confirmed!</p>
-                <div className="space-y-3 text-left">
-                  <div className="pb-3 border-b border-green-500/30">
-                    <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-1">Name</p>
-                    <p className="text-white font-light text-lg">{formData.firstName} {formData.lastName}</p>
+              <div className="bg-green-500/5 border-2 border-green-500 p-8 rounded-lg">
+                <div className="text-center mb-6">
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-green-500/20 rounded-full mb-4">
+                    <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                      <span className="text-white font-bold">✓</span>
+                    </div>
                   </div>
-                  <div className="pb-3 border-b border-green-500/30">
-                    <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-1">Phone</p>
-                    <p className="text-white font-light text-lg">{formData.phone || 'Not provided'}</p>
+                  <p className="font-bold text-xl text-green-400 uppercase tracking-wider">Appointment Confirmed!</p>
+                </div>
+                <div className="bg-white/5 rounded-lg p-6 space-y-4 mb-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-24 text-xs uppercase tracking-widest text-gray-400 font-semibold pt-1">Name</div>
+                    <div className="flex-1">
+                      <p className="text-white font-semibold text-lg">{formData.firstName} {formData.lastName}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-1">Email</p>
-                    <p className="text-white font-light text-lg">{formData.email}</p>
+                  <div className="border-t border-white/10"></div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-24 text-xs uppercase tracking-widest text-gray-400 font-semibold pt-1">Phone</div>
+                    <div className="flex-1">
+                      <p className="text-white font-semibold text-lg">{formData.phone || 'Not provided'}</p>
+                    </div>
+                  </div>
+                  <div className="border-t border-white/10"></div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-24 text-xs uppercase tracking-widest text-gray-400 font-semibold pt-1">Email</div>
+                    <div className="flex-1">
+                      <p className="text-white font-semibold text-lg">{formData.email}</p>
+                    </div>
                   </div>
                 </div>
-                <p className="font-light text-center mt-4 text-sm">Our team will get back to you within 24 hours.</p>
+                <p className="text-center text-gray-400 text-sm font-light">We'll get back to you within 24 hours</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2">First Name</label>
-                  <input
-                    type="text"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                    required
-                    className="w-full bg-black/50 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-elite-red transition-colors"
-                  />
+                {/* Personal Information Section */}
+                <div className="bg-white/5 rounded-lg p-6 space-y-5">
+                  <h4 className="text-sm uppercase tracking-widest text-gray-300 font-semibold">Personal Information</h4>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2">First Name *</label>
+                      <input
+                        type="text"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                        required
+                        className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-elite-red focus:ring-1 focus:ring-elite-red/50 transition-all"
+                        placeholder="Enter first name"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2">Last Name *</label>
+                      <input
+                        type="text"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                        required
+                        className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-elite-red focus:ring-1 focus:ring-elite-red/50 transition-all"
+                        placeholder="Enter last name"
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2">Last Name</label>
-                  <input
-                    type="text"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                    required
-                    className="w-full bg-black/50 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-elite-red transition-colors"
-                  />
+
+                {/* Contact Information Section */}
+                <div className="bg-white/5 rounded-lg p-6 space-y-5">
+                  <h4 className="text-sm uppercase tracking-widest text-gray-300 font-semibold">Contact Information</h4>
+                  <div>
+                    <label className="block text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2">Email Address *</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      required
+                      className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-elite-red focus:ring-1 focus:ring-elite-red/50 transition-all"
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2">Phone Number</label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-elite-red focus:ring-1 focus:ring-elite-red/50 transition-all"
+                      placeholder="+91 XXXXX XXXXX"
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2">Email Address</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    required
-                    className="w-full bg-black/50 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-elite-red transition-colors"
-                  />
+
+                {/* Message Section */}
+                <div className="bg-white/5 rounded-lg p-6 space-y-5">
+                  <h4 className="text-sm uppercase tracking-widest text-gray-300 font-semibold">Your Message</h4>
+                  <div>
+                    <label className="block text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2">Tell us about your fitness goals *</label>
+                    <textarea
+                      name="message"
+                      rows={4}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      required
+                      className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-elite-red focus:ring-1 focus:ring-elite-red/50 transition-all resize-none"
+                      placeholder="Share your fitness goals or any specific requests..."
+                    ></textarea>
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2">Phone Optional</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-black/50 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-elite-red transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs uppercase tracking-widest text-gray-400 font-semibold mb-2">Message</label>
-                  <textarea
-                    name="message"
-                    rows={4}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    required
-                    className="w-full bg-black/50 border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-elite-red transition-colors"
-                  ></textarea>
-                </div>
-                <button type="submit" className="w-full bg-elite-red hover:bg-red-600 text-white py-4 rounded font-bold uppercase tracking-widest transition-colors flex justify-center items-center gap-2">
-                  Send Message <Send className="w-4 h-4" />
+
+                <button type="submit" className="w-full bg-gradient-to-r from-elite-red to-red-600 hover:from-red-600 hover:to-red-700 text-white py-4 rounded-lg font-bold uppercase tracking-widest transition-all shadow-lg hover:shadow-xl flex justify-center items-center gap-2 mt-8">
+                  Book Appointment <Send className="w-4 h-4" />
                 </button>
               </form>
             )}
