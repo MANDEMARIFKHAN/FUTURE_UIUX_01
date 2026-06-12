@@ -1,11 +1,41 @@
 import { ArrowRight, CheckCircle2, ChevronRight, Play, Star, Users } from 'lucide-react';
 import { motion } from 'motion/react';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import { pricingPlans, programsInfo, testimonials, trainers } from '../data';
 
 export default function Home() {
+  const [bmiHeight, setBmiHeight] = useState('');
+  const [bmiWeight, setBmiWeight] = useState('');
+  const [bmiAge, setBmiAge] = useState('');
+  const [bmiSex, setBmiSex] = useState('');
+  const [bmiResult, setBmiResult] = useState<{ bmi: number; category: string } | null>(null);
+
+  const calculateBMI = () => {
+    if (!bmiHeight || !bmiWeight) {
+      alert('Please enter height and weight');
+      return;
+    }
+
+    const heightInMeters = parseFloat(bmiHeight) / 100;
+    const weight = parseFloat(bmiWeight);
+    const bmi = weight / (heightInMeters * heightInMeters);
+
+    let category = '';
+    if (bmi < 18.5) {
+      category = 'Underweight';
+    } else if (bmi < 25) {
+      category = 'Normal weight';
+    } else if (bmi < 30) {
+      category = 'Overweight';
+    } else {
+      category = 'Obese';
+    }
+
+    setBmiResult({ bmi: Math.round(bmi * 10) / 10, category });
+  };
+
   return (
     <PageTransition>
       {/* Hero Section */}
@@ -199,27 +229,56 @@ export default function Home() {
             <form className="space-y-4 max-w-md" onSubmit={(e) => e.preventDefault()}>
                <div className="grid grid-cols-2 gap-4">
                  <div>
-                   <input type="number" placeholder="Height / cm" className="w-full bg-elite-dark border border-white/10 rounded px-4 py-3 focus:outline-none focus:border-elite-red text-white transition-colors" />
+                   <input 
+                     type="number" 
+                     placeholder="Height / cm" 
+                     value={bmiHeight}
+                     onChange={(e) => setBmiHeight(e.target.value)}
+                     className="w-full bg-elite-dark border border-white/10 rounded px-4 py-3 focus:outline-none focus:border-elite-red text-white transition-colors" 
+                   />
                  </div>
                  <div>
-                   <input type="number" placeholder="Weight / kg" className="w-full bg-elite-dark border border-white/10 rounded px-4 py-3 focus:outline-none focus:border-elite-red text-white transition-colors" />
+                   <input 
+                     type="number" 
+                     placeholder="Weight / kg" 
+                     value={bmiWeight}
+                     onChange={(e) => setBmiWeight(e.target.value)}
+                     className="w-full bg-elite-dark border border-white/10 rounded px-4 py-3 focus:outline-none focus:border-elite-red text-white transition-colors" 
+                   />
                  </div>
                </div>
                <div className="grid grid-cols-2 gap-4">
                  <div>
-                   <input type="number" placeholder="Age" className="w-full bg-elite-dark border border-white/10 rounded px-4 py-3 focus:outline-none focus:border-elite-red text-white transition-colors" />
+                   <input 
+                     type="number" 
+                     placeholder="Age" 
+                     value={bmiAge}
+                     onChange={(e) => setBmiAge(e.target.value)}
+                     className="w-full bg-elite-dark border border-white/10 rounded px-4 py-3 focus:outline-none focus:border-elite-red text-white transition-colors" 
+                   />
                  </div>
                  <div>
-                   <select className="w-full bg-elite-dark border border-white/10 rounded px-4 py-3 focus:outline-none focus:border-elite-red text-gray-400 font-light appearance-none transition-colors">
+                   <select 
+                     value={bmiSex}
+                     onChange={(e) => setBmiSex(e.target.value)}
+                     className="w-full bg-elite-dark border border-white/10 rounded px-4 py-3 focus:outline-none focus:border-elite-red text-gray-400 font-light appearance-none transition-colors"
+                   >
                      <option value="">Sex</option>
                      <option value="male">Male</option>
                      <option value="female">Female</option>
                    </select>
                  </div>
                </div>
-               <button type="button" onClick={() => alert('BMI functionality would execute here.')} className="w-full bg-transparent border border-elite-red text-elite-red hover:bg-elite-red hover:text-white py-3 rounded font-bold uppercase tracking-widest transition-colors mt-4">
+               <button type="button" onClick={calculateBMI} className="w-full bg-transparent border border-elite-red text-elite-red hover:bg-elite-red hover:text-white py-3 rounded font-bold uppercase tracking-widest transition-colors mt-4">
                  Calculate
                </button>
+               {bmiResult && (
+                 <div className="mt-6 p-4 bg-elite-red/10 border border-elite-red rounded text-center">
+                   <p className="text-gray-400 text-sm mb-2">Your BMI</p>
+                   <p className="text-4xl font-bold text-elite-red mb-2">{bmiResult.bmi}</p>
+                   <p className="text-white font-semibold text-lg">{bmiResult.category}</p>
+                 </div>
+               )}
             </form>
           </motion.div>
           <motion.div
