@@ -18,7 +18,7 @@ export default function Contact() {
     setSubmitted(true);
 
     const whatsappNumber = '919908869621';
-    const whatsappMessage = `New appointment request from ${formData.firstName} ${formData.lastName}%0AEmail: ${formData.email}%0APhone: ${formData.phone || 'N/A'}%0AMessage: ${formData.message}`;
+    const whatsappMessage = `New Appointment Request\n\nName: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nPhone: ${formData.phone || 'N/A'}\nMessage: ${formData.message}`;
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
     window.open(whatsappUrl, '_blank');
